@@ -1,5 +1,7 @@
 package util;
 
+import exception.ErrorMessage;
+
 import java.util.List;
 
 public class InputValidator {
@@ -7,11 +9,11 @@ public class InputValidator {
     public static void validateNames(List<String> names) {
         for (String name : names) {
             if (name == null || name.isBlank()) {
-                throw new IllegalArgumentException("자동차 이름은 비어있을 수 없습니다.");
+                throw new IllegalArgumentException(ErrorMessage.EMPTY_CAR_NAME);
             }
 
             if (name.length() > 5) {
-                throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+                throw new IllegalArgumentException(ErrorMessage.INVALID_CAR_NAME_LENGTH);
             }
         }
     }
@@ -22,11 +24,11 @@ public class InputValidator {
         try {
             times = Integer.parseInt(strTimes);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("정수가 아닌 값이 입력되었습니다.");
+            throw new IllegalArgumentException(ErrorMessage.INVALID_NUMBER_FORMAT);
         }
 
         if (times < 0) {
-            throw new IllegalArgumentException("시도 횟수에 음수가 입력되었습니다.");
+            throw new IllegalArgumentException(ErrorMessage.NEGATIVE_ATTEMPT_COUNT);
         }
 
         return times;
