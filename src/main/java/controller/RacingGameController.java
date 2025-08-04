@@ -2,6 +2,7 @@ package controller;
 
 import model.Car;
 import model.Cars;
+import util.InputValidator;
 import util.NameParser;
 import view.InputView;
 import view.OutputView;
@@ -16,9 +17,12 @@ public class RacingGameController {
 
     public void start() {
         String nameStr = inputView.inputNames();
-        joinCars(nameStr);
+        List<String> names = parseName(nameStr);
 
-        int times = inputView.inputTimes();
+        InputValidator.validateNames(names);
+        joinCars(names);
+
+        int times = InputValidator.validateAndGetTimes(inputView.inputTimes());
 
         outputView.printExecuteResult();
 
@@ -30,11 +34,15 @@ public class RacingGameController {
         outputView.printWinners(cars.getWinners());
     }
 
-    public void joinCars(String nameStr) {
-        List<String> names = NameParser.parse(nameStr);
-
+    public void joinCars(List<String> names) {
         names.forEach(name ->
                 cars.join(new Car(name))
         );
     }
+
+    public List<String> parseName(String nameStr) {
+        return NameParser.parse(nameStr);
+    }
+
+
 }
