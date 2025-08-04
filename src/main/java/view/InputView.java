@@ -12,9 +12,9 @@ public class InputView {
         return sc.nextLine();
     }
 
-    public int inputTimes() {
+    public String inputTimes() {
         System.out.println("시도할 회수는 몇회인가요?");
 
-        return sc.nextInt();
+        return sc.nextLine();
     }
 }
