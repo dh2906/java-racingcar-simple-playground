@@ -40,7 +40,7 @@ public class RacingGameController {
         );
     }
 
-    public List<String> parseName(String nameStr) {
+    private List<String> parseName(String nameStr) {
         return NameParser.parse(nameStr);
     }
 
