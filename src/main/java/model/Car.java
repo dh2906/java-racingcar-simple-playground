@@ -1,7 +1,5 @@
 package model;
 
-import util.RandomGenerator;
-
 public class Car {
 
     private String name;
@@ -12,14 +10,14 @@ public class Car {
         pos = 0;
     }
 
-    public void move() {
-        goForward(RandomGenerator.generate());
-    }
-
-    public void goForward(int randomNumber) {
-        if (randomNumber >= 4) {
+    public void move(int randomNumber) {
+        if (canMove(randomNumber)) {
             pos++;
         }
+    }
+
+    private boolean canMove(int randomNumber) {
+        return randomNumber >= 4;
     }
 
     public int getPos() {
