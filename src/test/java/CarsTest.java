@@ -1,9 +1,10 @@
 import model.Car;
 import model.Cars;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+
+import static org.assertj.core.api.Assertions.*;
 
 public class CarsTest {
 
@@ -23,7 +24,7 @@ public class CarsTest {
 
         List<Car> winners = cars.getWinners();
 
-        Assertions.assertThat(winners).isEqualTo(List.of(car1));
+        assertThat(winners).isEqualTo(List.of(car1));
     }
 
     @Test
@@ -40,6 +41,6 @@ public class CarsTest {
 
         List<Car> winners = cars.getWinners();
 
-        Assertions.assertThat(winners).isEqualTo(List.of(car1, car2, car3));
+        assertThat(winners).isEqualTo(List.of(car1, car2, car3));
     }
 }

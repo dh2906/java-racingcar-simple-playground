@@ -1,8 +1,7 @@
 import model.Car;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.Random;
+import static org.assertj.core.api.Assertions.*;
 
 public class CarTest {
 
@@ -12,7 +11,7 @@ public class CarTest {
 
         car.move(4);
 
-        Assertions.assertThat(car.getPos()).isEqualTo(1);
+        assertThat(car.getPos()).isEqualTo(1);
     }
 
     @Test
@@ -21,6 +20,6 @@ public class CarTest {
 
         car.move(0);
 
-        Assertions.assertThat(car.getPos()).isEqualTo(0);
+        assertThat(car.getPos()).isEqualTo(0);
     }
 }
