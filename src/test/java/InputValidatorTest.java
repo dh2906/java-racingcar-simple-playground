@@ -29,19 +29,8 @@ public class InputValidatorTest {
     }
 
     @Test
-    public void 횟수에_정수가_아닌_문자를_입력받은_경우_예외를_발생한다() {
-        String strTimes = "asd";
-
-        assertThatThrownBy(() -> InputValidator.validateAndGetTimes(strTimes))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ErrorMessage.INVALID_NUMBER_FORMAT);
-    }
-
-    @Test
     public void 횟수에_음수를_입력받은_경우_예외를_발생한다() {
-        String strTimes = "-1";
-
-        assertThatThrownBy(() -> InputValidator.validateAndGetTimes(strTimes))
+        assertThatThrownBy(() -> InputValidator.validateTimes(-1))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ErrorMessage.NEGATIVE_ATTEMPT_COUNT);
     }

@@ -22,7 +22,7 @@ public class RacingGameController {
         InputValidator.validateNames(names);
         joinCars(names);
 
-        int times = InputValidator.validateAndGetTimes(inputView.inputTimes());
+        int times = InputValidator.validateTimes(inputView.inputTimes());
 
         outputView.printExecuteResult();
 

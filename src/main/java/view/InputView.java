@@ -1,5 +1,8 @@
 package view;
 
+import exception.ErrorMessage;
+
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class InputView {
@@ -12,9 +15,13 @@ public class InputView {
         return sc.nextLine();
     }
 
-    public String inputTimes() {
+    public int inputTimes() {
         System.out.println("시도할 회수는 몇회인가요?");
 
-        return sc.nextLine();
+        try {
+            return sc.nextInt();
+        } catch (InputMismatchException ex) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_NUMBER_FORMAT);
+        }
     }
 }

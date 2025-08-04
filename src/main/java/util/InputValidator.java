@@ -18,15 +18,7 @@ public class InputValidator {
         }
     }
 
-    public static int validateAndGetTimes(String strTimes) {
-        int times;
-
-        try {
-            times = Integer.parseInt(strTimes);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_NUMBER_FORMAT);
-        }
-
+    public static int validateTimes(int times) {
         if (times < 0) {
             throw new IllegalArgumentException(ErrorMessage.NEGATIVE_ATTEMPT_COUNT);
         }
