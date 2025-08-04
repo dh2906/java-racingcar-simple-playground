@@ -43,6 +43,4 @@ public class RacingGameController {
     private List<String> parseName(String nameStr) {
         return NameParser.parse(nameStr);
     }
-
-
 }
