@@ -7,35 +7,36 @@ import java.util.List;
 
 public class Cars {
 
-    private final List<Car> cars = new ArrayList<>();
+    private final List<Car> carList = new ArrayList<>();
 
     public void join(Car car) {
-        cars.add(car);
+        carList.add(car);
     }
 
-    public void moveCars(int times) {
-        for (int i = 0; i < times; i++) {
-            cars.forEach(car ->
-                    car.move(RandomGenerator.generate())
-            );
-        }
+    public void moveCars() {
+        carList.forEach(car ->
+                car.move(RandomGenerator.generate())
+        );
     }
 
     public int getWinnerPos() {
-        return cars.stream()
-                   .mapToInt(Car::getPos)
-                   .max()
-                   .getAsInt();
+        return carList.stream()
+                      .mapToInt(Car::getPos)
+                      .max()
+                      .getAsInt();
     }
 
     public List<Car> getWinners() {
         int maxPos = getWinnerPos();
 
-        return cars.stream()
-                .filter(car ->
-                        car.getPos() == maxPos
-                )
-                .toList();
+        return carList.stream()
+                      .filter(car ->
+                              car.getPos() == maxPos
+                      )
+                      .toList();
     }
 
+    public List<Car> getCarList() {
+        return carList;
+    }
 }
