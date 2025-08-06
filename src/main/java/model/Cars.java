@@ -15,25 +15,25 @@ public class Cars {
 
     public void moveCars() {
         carList.forEach(car ->
-                car.move(RandomGenerator.generate())
+            car.move(RandomGenerator.generate())
         );
     }
 
     public int getWinnerPos() {
         return carList.stream()
-                      .mapToInt(Car::getPos)
-                      .max()
-                      .getAsInt();
+            .mapToInt(Car::getPos)
+            .max()
+            .getAsInt();
     }
 
     public List<Car> getWinners() {
         int maxPos = getWinnerPos();
 
         return carList.stream()
-                      .filter(car ->
-                              car.getPos() == maxPos
-                      )
-                      .toList();
+            .filter(car ->
+                car.getPos() == maxPos
+            )
+            .toList();
     }
 
     public List<Car> getCarList() {
