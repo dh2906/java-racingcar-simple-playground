@@ -1,9 +1,9 @@
 package model;
 
-import util.RandomGenerator;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import util.RandomGenerator;
 
 public class Cars {
 
