@@ -4,6 +4,9 @@ import exception.ErrorMessage;
 
 public class Car {
 
+    private static final int MOVE_CONDITION_VALUE = 4;
+    private static final int MAX_NAME_LENGTH = 5;
+
     private final String name;
     private int pos;
 
@@ -21,7 +24,7 @@ public class Car {
     }
 
     private boolean canMove(int randomNumber) {
-        return randomNumber >= 4;
+        return randomNumber >= MOVE_CONDITION_VALUE;
     }
 
     public int getPos() {
@@ -44,7 +47,7 @@ public class Car {
     }
 
     private void validateOverLengthName(String name) {
-        if (name.length() > 5) {
+        if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_CAR_NAME_LENGTH);
         }
     }
