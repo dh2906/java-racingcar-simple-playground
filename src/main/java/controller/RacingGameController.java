@@ -1,13 +1,13 @@
 package controller;
 
+import java.util.List;
+
 import model.Car;
 import model.Cars;
-import util.InputValidator;
 import util.NameParser;
+import util.TimesValidator;
 import view.InputView;
 import view.OutputView;
-
-import java.util.List;
 
 public class RacingGameController {
 
@@ -19,10 +19,10 @@ public class RacingGameController {
         String nameStr = inputView.inputNames();
         List<String> names = parseName(nameStr);
 
-        InputValidator.validateNames(names);
         joinCars(names);
 
-        int times = InputValidator.validateTimes(inputView.inputTimes());
+        String timesStr = inputView.inputTimes();
+        int times = TimesValidator.validateAndGetTimes(timesStr);
 
         outputView.printExecuteResult();
 
