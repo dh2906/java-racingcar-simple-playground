@@ -4,11 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import exception.ErrorMessage;
+import util.NumberGenerator;
 import util.RandomGenerator;
 
 public class Cars {
 
+    private static final int RANDOM_NUMBER_BOUND = 10;
+
     private final List<Car> carList = new ArrayList<>();
+    private final NumberGenerator randomGenerator = new RandomGenerator();
 
     public void join(Car car) {
         validateDuplicateName(car);
@@ -18,7 +22,7 @@ public class Cars {
 
     public void moveCars() {
         carList.forEach(car ->
-            car.move(RandomGenerator.generate())
+            car.move(randomGenerator.generate(RANDOM_NUMBER_BOUND))
         );
     }
 
