@@ -1,9 +1,9 @@
 package view;
 
-import model.Car;
-
 import java.util.List;
 import java.util.stream.Collectors;
+
+import model.Car;
 
 public class OutputView {
 
@@ -14,7 +14,7 @@ public class OutputView {
 
     public void printProgress(List<Car> carList) {
         for (Car car : carList) {
-            System.out.println(car.getName() + " : " + "-".repeat(car.getPos()));
+            System.out.printf("%s : %s \n", car.getName(), "-".repeat(car.getPos()));
         }
 
         System.out.println();
@@ -25,6 +25,6 @@ public class OutputView {
                                        .map(Car::getName)
                                        .collect(Collectors.joining(", "));
 
-        System.out.println(winnerNameStr + "가 최종 우승했습니다.");
+        System.out.printf("%s가 최종 우승했습니다. \n", winnerNameStr);
     }
 }
