@@ -23,7 +23,7 @@ public class Cars {
         return carList.stream()
             .mapToInt(Car::getPos)
             .max()
-            .getAsInt();
+            .orElse(0);
     }
 
     public List<Car> getWinners() {
